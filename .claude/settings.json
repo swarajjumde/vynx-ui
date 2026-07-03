@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(C:\\Projects\\vynx-ui\\**)",
+      "Edit(C:\\Projects\\vynx-ui\\**)",
+      "Write(C:\\Projects\\vynx-ui\\**)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run test:*)",
+      "Bash(npm run lint:*)"
+    ],
+    "deny": [
+      "Read(**\\.env)",
+      "Read(**\\.env.*)",
+      "Read(**\\credentials\\**)",
+      "Read(**\\.aws\\**)",
+      "Read(**\\.azure\\**)",
+      "Read(**\\.config\\gh\\**)",
+      "Read(**\\AppData\\Local\\Google\\Chrome\\**)",
+      "Read(**\\AppData\\Roaming\\Mozilla\\**)",
+      "Bash(git push:*)",
+      "Bash(npm publish:*)",
+      "Bash(rm:*)",
+      "Bash(del:*)",
+      "Bash(rmdir:*)",
+      "Bash(Remove-Item:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(Invoke-WebRequest:*)",
+      "Bash(Invoke-RestMethod:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(pwsh -Command:*)"
+    ]
+  }
+}
