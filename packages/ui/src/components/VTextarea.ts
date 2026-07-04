@@ -37,10 +37,17 @@ export const VTextarea = defineComponent({
 
       return 24;
     });
+    // Lynx's web `x-textarea` custom element is `display: contents`, and its
+    // inner control inherits `width`/`height` from this element. A bare
+    // `minHeight` therefore produces no box and leaves the field unclickable in
+    // the web preview, so we set concrete inherited dimensions instead: full
+    // width plus a `rows`-derived pixel height.
     const textareaStyle = computed(() => ({
       ...styles.value.container,
       lineHeight: theme.value.typography.lineHeight.normal,
-      minHeight: `${Math.ceil(visibleRows.value * rowHeight.value)}px`
+      boxSizing: 'border-box',
+      width: '100%',
+      height: `${Math.ceil(visibleRows.value * rowHeight.value)}px`
     }));
 
     const onInput = (event: unknown) => {

@@ -98,7 +98,11 @@ describe('text input update behaviour', () => {
     const { vnode, emitted } = render(VTextarea, { modelValue: '', rows: 4 });
     expect(vnode.props.bindinput).toBe(vnode.props.onInput);
     expect(vnode.props.maxlines).toBe(4);
-    expect(vnode.props.style.minHeight).toBe('96px');
+    // Concrete inherited dimensions keep the Lynx `x-textarea` editable in the
+    // web preview (its inner control inherits width/height from the element).
+    expect(vnode.props.style.width).toBe('100%');
+    expect(vnode.props.style.height).toBe('96px');
+    expect(vnode.props.style.boxSizing).toBe('border-box');
 
     vnode.props.onInput({ detail: { value: 'line one' } });
     expect(emitted).toContainEqual(['update:modelValue', 'line one']);
