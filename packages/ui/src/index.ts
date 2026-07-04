@@ -33,6 +33,8 @@ export type { ActionSheetAction } from './components/VActionSheet.js';
 export { VDrawer } from './components/VDrawer.js';
 export { VToast } from './components/VToast.js';
 export { VConfirmDialog } from './components/VConfirmDialog.js';
+export { VTabBar } from './components/VTabBar.js';
+export type { TabBarItem } from './components/VTabBar.js';
 export { provideTheme, useTheme } from './theme.js';
 export {
   resolveButtonStyle,
@@ -97,6 +99,8 @@ export { resolveToastStyle } from './styles/toast.js';
 export type { ToastTone, ToastStyleOptions, ToastStyle } from './styles/toast.js';
 export { resolveConfirmDialogStyle } from './styles/confirmdialog.js';
 export type { ConfirmDialogStyle } from './styles/confirmdialog.js';
+export { resolveTabBarStyle, resolveTabBarItemStyle } from './styles/tabbar.js';
+export type { TabBarItemStyleOptions, TabBarItemStyle } from './styles/tabbar.js';
 export type {
   ButtonVariant,
   ButtonTone,
