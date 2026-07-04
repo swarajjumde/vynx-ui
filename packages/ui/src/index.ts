@@ -43,6 +43,12 @@ export { VSelect } from './components/VSelect.js';
 export type { SelectItem } from './components/VSelect.js';
 export { VEmptyState } from './components/VEmptyState.js';
 export { VPaginator } from './components/VPaginator.js';
+export { VDataView } from './components/VDataView.js';
+export { VTimeline } from './components/VTimeline.js';
+export type { TimelineItem } from './components/VTimeline.js';
+export { VCarousel } from './components/VCarousel.js';
+export { VTable } from './components/VTable.js';
+export type { TableColumn } from './components/VTable.js';
 export { provideTheme, useTheme } from './theme.js';
 export {
   resolveButtonStyle,
@@ -126,6 +132,13 @@ export { resolveEmptyStateStyle } from './styles/emptystate.js';
 export type { EmptyStateStyle } from './styles/emptystate.js';
 export { resolvePaginatorStyle, resolvePaginatorButtonStyle } from './styles/paginator.js';
 export type { PaginatorButtonStyleOptions, PaginatorButtonStyle } from './styles/paginator.js';
+export { resolveDataViewStyle } from './styles/dataview.js';
+export { resolveTimelineStyle, resolveTimelineItemStyle } from './styles/timeline.js';
+export type { TimelineItemStyleOptions, TimelineItemStyle } from './styles/timeline.js';
+export { resolveCarouselStyle } from './styles/carousel.js';
+export type { CarouselStyleOptions } from './styles/carousel.js';
+export { resolveTableStyle } from './styles/table.js';
+export type { TableStyle } from './styles/table.js';
 export type {
   ButtonVariant,
   ButtonTone,
