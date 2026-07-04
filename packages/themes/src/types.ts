@@ -24,6 +24,8 @@ export interface ThemeColors {
   onDanger: string;
   info: string;
   onInfo: string;
+  /** Semi-transparent backdrop behind overlays (dialogs, sheets, drawers). */
+  overlay: string;
 }
 
 export interface SpacingTokens {

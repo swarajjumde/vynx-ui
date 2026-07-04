@@ -45,6 +45,11 @@ export const palette = {
     dangerDarkHover: '#ef8080',
     info: '#3b7fd4',
     infoDark: '#5b95e0'
+  },
+  // Semi-transparent backdrop scrims for overlays (the only non-hex colours).
+  scrim: {
+    light: 'rgba(23,26,32,0.45)',
+    dark: 'rgba(0,0,0,0.6)'
   }
 } as const;
 
