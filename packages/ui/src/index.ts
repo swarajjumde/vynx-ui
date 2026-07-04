@@ -18,6 +18,8 @@ export { VStack } from './components/VStack.js';
 export { VScrollView } from './components/VScrollView.js';
 export { VListItem } from './components/VListItem.js';
 export { VList } from './components/VList.js';
+export { VRadioGroup } from './components/VRadioGroup.js';
+export type { RadioOption } from './components/VRadioGroup.js';
 export { provideTheme, useTheme } from './theme.js';
 export {
   resolveButtonStyle,
@@ -50,6 +52,12 @@ export type { ScrollViewPadding, ScrollViewStyleOptions } from './styles/scroll.
 export type { ScrollViewDirection } from './components/VScrollView.js';
 export { resolveListItemStyle, resolveListStyle } from './styles/list.js';
 export type { ListItemStyleOptions } from './styles/list.js';
+export { resolveRadioGroupStyle, resolveRadioOptionStyle } from './styles/radio.js';
+export type {
+  RadioGroupStyleOptions,
+  RadioOptionStyleOptions,
+  RadioOptionStyle
+} from './styles/radio.js';
 export type {
   ButtonVariant,
   ButtonTone,

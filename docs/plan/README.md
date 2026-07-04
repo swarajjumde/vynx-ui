@@ -85,17 +85,20 @@ within a tier, items are independent and parallelizable.
 | Tier | Components | Status |
 | --- | --- | --- |
 | **1 — foundation** | Button, Card, Badge, FormField, InputText, Textarea, Checkbox, Switch | ✅ shipped |
-| **2 — primitives & display** | Text, Heading, Divider, Avatar, Tag/Chip, Spinner, ProgressBar, Skeleton, Icon, ScrollView, List/ListItem, Stack/Row/Column | 🔨 in progress |
-| **3 — forms** | RadioGroup, Select, Slider, InputNumber, ToggleButton, SelectButton, Rating, SearchInput | ⏳ |
+| **2 — primitives & display** | Text, Heading, Divider, Avatar, Tag, ProgressBar, Skeleton, Icon, ScrollView, List/ListItem, Stack | ✅ shipped |
+| **3 — forms** | RadioGroup, InputNumber, ToggleButton, SelectButton, Rating, SearchInput | 🔨 in progress · Select→overlay spike, Slider→gesture spike |
 | **4 — overlays & feedback** | BottomSheet, Dialog, Drawer, ActionSheet, Toast, ConfirmDialog | ⏳ (needs overlay spike) |
 | **5 — navigation** | TabBar (bottom nav), AppBar, Tabs, Steps, Breadcrumb, Menu, Accordion | ⏳ |
 | **6 — data** | DataView, Timeline, Carousel, Paginator, EmptyState, Table (constrained) | ⏳ |
 
 **Research spikes (do before their tier):**
-- **Icons** — Lynx has no font-icons; decide `image`-based vs. inline path
-  primitive. Blocks any component that wants an icon.
+- **Icons** — ✅ resolved: `VIcon` renders a Lynx `image` asset (no font-icons on
+  Lynx); colour is baked into the asset.
 - **Overlays/portals** — how Lynx layers content above the tree. Blocks Tier 4
-  and `Select`. Prefer mobile-native patterns (bottom sheet, action sheet).
+  and `VSelect`. Prefer mobile-native patterns (bottom sheet, action sheet).
+- **Gestures** — drag/pan handling on Lynx. Blocks `VSlider` (and later
+  swipeable rows / carousel). Deferred until the overlay spike lands.
+- **Animation** — Lynx animation support for a `VSpinner`; deferred until needed.
 
 ## 5. Model & agent workflow
 
