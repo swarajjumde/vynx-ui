@@ -3,7 +3,7 @@ import { useTheme } from '../theme.js';
 import { resolveCardStyle } from '../styles.js';
 
 /**
- * VCard — a token-driven, Lynx-compatible surface container.
+ * VCard - a token-driven, Lynx-compatible surface container.
  *
  * Renders a `view` and hosts arbitrary content via the default slot. The
  * `elevated` prop switches to the elevated surface token and a stronger shadow.

@@ -3,7 +3,7 @@ import { useTheme } from '../theme.js';
 import { resolveBadgeStyle, type BadgeTone } from '../styles.js';
 
 /**
- * VBadge — a token-driven, Lynx-compatible status label.
+ * VBadge - a token-driven, Lynx-compatible status label.
  *
  * Renders `view` + `text` Lynx elements. Content comes from the default slot
  * or the `label` prop; colour is driven by the `tone` token role.

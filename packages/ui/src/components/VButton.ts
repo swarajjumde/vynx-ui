@@ -3,7 +3,7 @@ import { useTheme } from '../theme.js';
 import { resolveButtonStyle, type ButtonTone, type ButtonVariant, type ControlSize } from '../styles.js';
 
 /**
- * VButton — a token-driven, Lynx-compatible button.
+ * VButton - a token-driven, Lynx-compatible button.
  *
  * Renders `view` + `text` Lynx elements (no DOM). Emits `tap` on press unless
  * disabled. Content comes from the default slot or the `label` prop.
