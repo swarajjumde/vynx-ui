@@ -1,0 +1,24 @@
+{
+  "name": "@vynx/starter",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Vynx Admin — an original Vue Lynx admin/dashboard starter built with Vynx UI.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "rspeedy dev",
+    "build": "rspeedy build",
+    "preview": "rspeedy preview"
+  },
+  "dependencies": {
+    "@vynx/themes": "*",
+    "@vynx/ui": "*",
+    "vue": "^3.5.0",
+    "vue-lynx": "0.4.0"
+  },
+  "devDependencies": {
+    "@lynx-js/qrcode-rsbuild-plugin": "^0.4.6",
+    "@lynx-js/rspeedy": "^0.13.5",
+    "@rsbuild/plugin-vue": "^1.2.6"
+  }
+}

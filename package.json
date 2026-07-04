@@ -11,6 +11,7 @@
   "scripts": {
     "build": "npm run build -w @vynx/themes && npm run build -w @vynx/ui",
     "build:showcase": "npm run build && npm run build -w @vynx/showcase",
+    "build:starter": "npm run build && npm run build -w @vynx/starter",
     "test": "node scripts/check-docs.mjs && npm run test -w @vynx/themes && npm run test -w @vynx/ui"
   },
   "devDependencies": {
