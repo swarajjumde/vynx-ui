@@ -35,6 +35,12 @@ export { VToast } from './components/VToast.js';
 export { VConfirmDialog } from './components/VConfirmDialog.js';
 export { VTabBar } from './components/VTabBar.js';
 export type { TabBarItem } from './components/VTabBar.js';
+export { VAppBar } from './components/VAppBar.js';
+export { VTabs } from './components/VTabs.js';
+export type { TabItem } from './components/VTabs.js';
+export { VAccordion } from './components/VAccordion.js';
+export { VSelect } from './components/VSelect.js';
+export type { SelectItem } from './components/VSelect.js';
 export { provideTheme, useTheme } from './theme.js';
 export {
   resolveButtonStyle,
@@ -101,6 +107,19 @@ export { resolveConfirmDialogStyle } from './styles/confirmdialog.js';
 export type { ConfirmDialogStyle } from './styles/confirmdialog.js';
 export { resolveTabBarStyle, resolveTabBarItemStyle } from './styles/tabbar.js';
 export type { TabBarItemStyleOptions, TabBarItemStyle } from './styles/tabbar.js';
+export { resolveAppBarStyle } from './styles/appbar.js';
+export type { AppBarStyle } from './styles/appbar.js';
+export { resolveTabsStyle, resolveTabItemStyle } from './styles/tabs.js';
+export type { TabsStyle, TabItemStyleOptions, TabItemStyle } from './styles/tabs.js';
+export { resolveAccordionStyle } from './styles/accordion.js';
+export type { AccordionStyleOptions, AccordionStyle } from './styles/accordion.js';
+export { resolveSelectStyle, resolveSelectOptionStyle } from './styles/select.js';
+export type {
+  SelectStyleOptions,
+  SelectStyle,
+  SelectOptionStyleOptions,
+  SelectOptionStyle
+} from './styles/select.js';
 export type {
   ButtonVariant,
   ButtonTone,
