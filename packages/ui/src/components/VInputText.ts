@@ -40,7 +40,8 @@ export const VInputText = defineComponent({
         value: props.modelValue,
         placeholder: props.placeholder,
         disabled: props.disabled,
-        bindinput: onInput
+        bindinput: onInput,
+        onInput
       });
   }
 });

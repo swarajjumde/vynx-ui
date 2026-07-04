@@ -85,16 +85,22 @@ describe('form component contracts', () => {
 });
 
 describe('text input update behaviour', () => {
-  it('VInputText emits value updates from a Lynx input event', () => {
+  it('VInputText emits value updates from Lynx and Vue-style input events', () => {
     const { vnode, emitted } = render(VInputText, { modelValue: '' });
-    vnode.props.bindinput({ detail: { value: 'hello' } });
+    expect(vnode.props.bindinput).toBe(vnode.props.onInput);
+
+    vnode.props.onInput({ detail: { value: 'hello' } });
     expect(emitted).toContainEqual(['update:modelValue', 'hello']);
     expect(emitted).toContainEqual(['input', 'hello']);
   });
 
-  it('VTextarea emits value updates from a Lynx textarea event', () => {
-    const { vnode, emitted } = render(VTextarea, { modelValue: '' });
-    vnode.props.bindinput({ detail: { value: 'line one' } });
+  it('VTextarea emits value updates from Lynx and Vue-style textarea events', () => {
+    const { vnode, emitted } = render(VTextarea, { modelValue: '', rows: 4 });
+    expect(vnode.props.bindinput).toBe(vnode.props.onInput);
+    expect(vnode.props.maxlines).toBe(4);
+    expect(vnode.props.style.minHeight).toBe('96px');
+
+    vnode.props.onInput({ detail: { value: 'line one' } });
     expect(emitted).toContainEqual(['update:modelValue', 'line one']);
     expect(emitted).toContainEqual(['input', 'line one']);
   });

@@ -26,6 +26,22 @@ export const VTextarea = defineComponent({
     const styles = computed(() =>
       resolveInputStyle(theme.value, { size: props.size, invalid: props.invalid, disabled: props.disabled })
     );
+    const visibleRows = computed(() => Math.max(1, Math.floor(props.rows)));
+    const rowHeight = computed(() => {
+      const fontSize = styles.value.container.fontSize;
+      const lineHeight = Number(theme.value.typography.lineHeight.normal);
+
+      if (typeof fontSize === 'string' && fontSize.endsWith('px') && Number.isFinite(lineHeight)) {
+        return Number(fontSize.slice(0, -2)) * lineHeight;
+      }
+
+      return 24;
+    });
+    const textareaStyle = computed(() => ({
+      ...styles.value.container,
+      lineHeight: theme.value.typography.lineHeight.normal,
+      minHeight: `${Math.ceil(visibleRows.value * rowHeight.value)}px`
+    }));
 
     const onInput = (event: unknown) => {
       if (props.disabled) return;
@@ -37,12 +53,13 @@ export const VTextarea = defineComponent({
     return () =>
       h('textarea', {
         class: 'v-textarea',
-        style: styles.value.container,
+        style: textareaStyle.value,
         value: props.modelValue,
         placeholder: props.placeholder,
-        rows: props.rows,
+        maxlines: visibleRows.value,
         disabled: props.disabled,
-        bindinput: onInput
+        bindinput: onInput,
+        onInput
       });
   }
 });
