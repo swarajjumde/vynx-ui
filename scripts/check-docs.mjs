@@ -1,22 +1,25 @@
 // Lightweight docs integrity check - no dependencies, no browser/DOM APIs.
 // Verifies that each foundation component has a JavaScript-first doc with the
 // required sections, and that the Lynx runtime decision doc is present.
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-const components = [
-  'VButton',
-  'VCard',
-  'VBadge',
-  'VFormField',
-  'VInputText',
-  'VTextarea',
-  'VCheckbox',
-  'VSwitch'
-];
+// Auto-discover components from the source tree so this gate scales as the
+// library grows — every `V*.ts` render module under packages/ui/src/components
+// must have a matching doc. No manual list to keep in sync.
+const componentsDir = join(root, 'packages', 'ui', 'src', 'components');
+const components = readdirSync(componentsDir)
+  .filter((file) => /^V[A-Za-z0-9]+\.ts$/.test(file))
+  .map((file) => file.replace(/\.ts$/, ''))
+  .sort();
+
+if (components.length === 0) {
+  console.error('Docs integrity check failed: no V*.ts components found to verify.');
+  process.exit(1);
+}
 
 const errors = [];
 const check = (cond, message) => {
