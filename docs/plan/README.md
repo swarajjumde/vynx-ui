@@ -86,9 +86,9 @@ within a tier, items are independent and parallelizable.
 | --- | --- | --- |
 | **1 — foundation** | Button, Card, Badge, FormField, InputText, Textarea, Checkbox, Switch | ✅ shipped |
 | **2 — primitives & display** | Text, Heading, Divider, Avatar, Tag, ProgressBar, Skeleton, Icon, ScrollView, List/ListItem, Stack | ✅ shipped |
-| **3 — forms** | RadioGroup, InputNumber, ToggleButton, SelectButton, Rating, SearchInput | 🔨 in progress · Select→overlay spike, Slider→gesture spike |
-| **4 — overlays & feedback** | BottomSheet, Dialog, Drawer, ActionSheet, Toast, ConfirmDialog | ⏳ (needs overlay spike) |
-| **5 — navigation** | TabBar (bottom nav), AppBar, Tabs, Steps, Breadcrumb, Menu, Accordion | ⏳ |
+| **3 — forms** | RadioGroup, InputNumber, ToggleButton, SelectButton, Rating, SearchInput | ✅ shipped · Slider→gesture spike |
+| **4 — overlays & feedback** | BottomSheet, Dialog, Drawer, ActionSheet, Toast, ConfirmDialog | ✅ shipped (overlay spike resolved) |
+| **5 — navigation** | TabBar (bottom nav), AppBar, Tabs, Steps, Breadcrumb, Menu, Accordion | ⏳ · `VSelect` now unblocked by the overlay pattern |
 | **6 — data** | DataView, Timeline, Carousel, Paginator, EmptyState, Table (constrained) | ⏳ |
 
 **Research spikes (do before their tier):**
