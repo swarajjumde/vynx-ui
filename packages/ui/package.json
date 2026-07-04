@@ -1,0 +1,28 @@
+{
+  "name": "@vynx/ui",
+  "version": "0.0.0",
+  "description": "Vue Lynx UI components for Vynx UI.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@vynx/themes": "*"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  }
+}

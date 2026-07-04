@@ -8,3 +8,7 @@ coverage/
 .env
 .env.*
 
+
+# AI run logs
+.ai/runs/*.json
+!.ai/runs/.gitkeep
