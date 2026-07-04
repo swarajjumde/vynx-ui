@@ -89,7 +89,7 @@ within a tier, items are independent and parallelizable.
 | **3 — forms** | RadioGroup, InputNumber, ToggleButton, SelectButton, Rating, SearchInput | ✅ shipped · Slider→gesture spike |
 | **4 — overlays & feedback** | BottomSheet, Dialog, Drawer, ActionSheet, Toast, ConfirmDialog | ✅ shipped (overlay spike resolved) |
 | **5 — navigation** | TabBar (bottom nav), AppBar, Tabs, Accordion, + Select | ✅ shipped · Steps/Breadcrumb/Menu optional remainder |
-| **6 — data** | DataView, Timeline, Carousel, Paginator, EmptyState, Table (constrained) | ⏳ next |
+| **6 — data** | DataView, Timeline, Carousel, Paginator, EmptyState, Table (constrained) | ✅ shipped |
 
 **Research spikes (do before their tier):**
 - **Icons** — ✅ resolved: `VIcon` renders a Lynx `image` asset (no font-icons on
