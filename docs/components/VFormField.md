@@ -10,7 +10,7 @@ only when the field is `invalid`, otherwise `help` text is shown.
 ```vue
 <script>
 import { VFormField, VInputText, provideTheme } from '@vynx/ui';
-import { ref } from 'vue';
+import { ref } from 'vue-lynx';
 import { violetDark } from '@vynx/themes';
 
 export default {

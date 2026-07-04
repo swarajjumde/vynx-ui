@@ -9,7 +9,7 @@ JavaScript, and also emits `change`. Taps are ignored while `disabled`.
 ```vue
 <script>
 import { VCheckbox, provideTheme } from '@vynx/ui';
-import { ref } from 'vue';
+import { ref } from 'vue-lynx';
 import { violetDark } from '@vynx/themes';
 
 export default {

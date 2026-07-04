@@ -10,7 +10,7 @@ while `disabled`.
 ```vue
 <script>
 import { VSwitch, provideTheme } from '@vynx/ui';
-import { ref } from 'vue';
+import { ref } from 'vue-lynx';
 import { violetDark } from '@vynx/themes';
 
 export default {

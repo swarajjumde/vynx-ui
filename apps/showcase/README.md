@@ -1,23 +1,63 @@
 # @vynx/showcase
 
-Temporary JavaScript consumer demo for the foundation package output. It is not yet a full runnable Vue Lynx showcase app.
+A real **Vue Lynx** (Rspeedy) showcase app for Vynx UI, scaffolded from the
+official command `npm create vue-lynx@latest` (see <https://vue.lynxjs.org/>).
+It renders the Vynx UI foundation components on a Lynx surface, JavaScript-first.
 
 ## Files
 
+- `lynx.config.js` - Rspeedy config (from the official `create-vue-lynx`
+  JavaScript template): registers `pluginVueLynx` and `pluginQRCode`, and builds
+  the `lynx` and `web` environments from `src/index.js`.
+- `src/index.js` - Vue Lynx entry. Mounts the app with `createApp` from
+  `vue-lynx` (`app.mount()`).
 - `src/App.vue` - a JavaScript SFC using `VButton`, `VCard`, `VBadge`, and the
   form foundation components (`VFormField`, `VInputText`, `VTextarea`,
   `VCheckbox`, `VSwitch`) with the violet dark brand theme applied via
-  `provideTheme`. Text inputs bind with `v-model`; boolean controls bind with
-  `v-model:checked`.
-- `src/main.js` - placeholder JavaScript entry for a future Vue Lynx runtime.
+  `provideTheme`. Vue APIs (`ref`) are imported from `vue-lynx`. Text inputs bind
+  with `v-model`; boolean controls bind with `v-model:checked`.
 - `src/tokens-usage.js` - a plain-JS example that imports the compiled package
-  output and resolves component styles from design tokens.
+  output and resolves component styles from design tokens. Runs under plain
+  Node: `node apps/showcase/src/tokens-usage.js`.
+
+## Prerequisites
+
+Build the workspace packages first so the `dist` output the app imports exists:
+
+```powershell
+npm install
+npm run build
+```
+
+## Run and build (Vue Lynx / Rspeedy)
+
+From the repo root:
+
+```powershell
+# Build the packages + the showcase bundle
+npm run build:showcase
+```
+
+Or from `apps/showcase` directly:
+
+```powershell
+npm run dev      # rspeedy dev server (prints a QR code)
+npm run build    # rspeedy production build
+npm run preview  # preview the built bundle
+```
+
+## Previewing
+
+- **Lynx Explorer** - scan the QR code printed by `npm run dev` (produced by
+  `@lynx-js/qrcode-rsbuild-plugin`) to run the bundle on a device or simulator.
+- **Web Preview** - the `web` environment in `lynx.config.js` renders the same
+  bundle in a browser for quick iteration.
 
 ## Usage (JavaScript)
 
 ```js
 import { VCard, VFormField, VInputText, VCheckbox, provideTheme } from '@vynx/ui';
-import { ref } from 'vue';
+import { ref } from 'vue-lynx';
 import { violetDark } from '@vynx/themes';
 
 export default {
@@ -33,25 +73,7 @@ export default {
 
 Text inputs use `v-model`; boolean controls use `v-model:checked`.
 
-Build the packages first (`npm run build` at the repo root) so the `dist`
-output the app imports exists.
-
-## Status
-
-This app is a **temporary JavaScript consumer demo**, not yet a runnable Vue
-Lynx host. `src/App.vue` documents ordinary Vue usage and `src/tokens-usage.js`
-is a runnable plain-JS example (`node apps/showcase/src/tokens-usage.js`), but
-nothing is mounted on a Lynx runtime yet.
-
-Making this app truly runnable depends on an open decision: choose or build a
-Vue-compatible Lynx runtime/adapter. The official Lynx tooling to track is
-**Rspeedy** (build tool / scaffold) and **Lynx Explorer** (preview app);
-**ReactLynx** is official for React but this repository is not switching to
-React. See [../../docs/decisions/lynx-runtime.md](../../docs/decisions/lynx-runtime.md).
-
-## Next steps
-
-- Decide on a Vue-compatible Lynx renderer/adapter (see the decision doc).
-- Until then, keep examples JavaScript-first and framework-contract focused.
-- Component usage docs live in
-  [../../docs/components/](../../docs/components/README.md).
+See the runtime decision in
+[../../docs/decisions/lynx-runtime.md](../../docs/decisions/lynx-runtime.md) and
+component usage docs in
+[../../docs/components/](../../docs/components/README.md).

@@ -1,6 +1,6 @@
-# Runtime Decision: Lynx Host for Vynx UI
+# Runtime Decision: Vue Lynx Host for Vynx UI
 
-Status: **Open** - recorded honestly, not yet resolved.
+Status: **Accepted**
 Date: 2026-07-04
 
 ## Context
@@ -10,50 +10,65 @@ Vynx UI is a Vue-oriented, token-driven component package that targets Vue Lynx
 these components running on a real Lynx surface we need a Lynx host application
 and a Lynx renderer that understands Vue components.
 
-Research into the official Lynx documentation found:
+There **is** an official Vue framework for Lynx: **Vue Lynx**
+(<https://vue.lynxjs.org/>). It provides the `vue-lynx` runtime and an official
+project scaffold, and builds on the same official Lynx tooling used by ReactLynx.
 
-- **Rspeedy** is the officially recommended Lynx build tool and project scaffold
-  (`npm create rspeedy@latest`).
-- **Lynx Explorer** is the official app for previewing Lynx bundles on device /
-  simulator.
-- **ReactLynx** is the official framework for authoring Lynx UIs - in **React**.
-- No official **Vue** Lynx runtime / scaffold appears in the Lynx quick-start.
+The relevant, verified sources are:
+
+- Vue Lynx homepage: <https://vue.lynxjs.org/>
+- Vue Lynx quick start: <https://vue.lynxjs.org/guide/quick-start>
+- Vue Lynx introduction: <https://vue.lynxjs.org/guide/introduction>
+
+Current published versions used for the showcase:
+
+- `vue-lynx@0.4.0`
+- `create-vue-lynx@0.1.3`
+- `@lynx-js/rspeedy@0.13.6`
+- `@lynx-js/qrcode-rsbuild-plugin@0.4.7`
+- `@rsbuild/plugin-vue@1.2.9`
 
 ## Decision
 
-For this slice we do **not** make `apps/showcase` a truly runnable Lynx app.
+**Vue Lynx is the selected runtime for `apps/showcase`.**
 
-- `apps/showcase` remains a **temporary JavaScript consumer demo** that proves
-  the compiled package output is consumable from plain JavaScript (see
-  `apps/showcase/src/tokens-usage.js`). Its `App.vue` documents ordinary Vue
-  usage but is not yet mounted on a Lynx runtime.
-- We are **not** switching this repository to React / ReactLynx. Although
-  ReactLynx is the official React framework for Lynx, Vynx UI stays a
-  Vue-oriented package (`@vynx/ui`) for now.
-- We are **not** adding a runtime dependency or scaffolding a host app until a
-  Vue-compatible Lynx renderer/adapter is chosen or built.
+- `apps/showcase` is a real Vue Lynx / **Rspeedy** app, scaffolded from the
+  official command `npm create vue-lynx@latest`. It mounts with `createApp`
+  from `vue-lynx` in `src/index.js` and is built with `rspeedy` (`dev`,
+  `build`, `preview`).
+- The showcase imports Vue APIs (such as `ref`) from `vue-lynx`, and Vynx UI
+  components from `@vynx/ui`. SFC usage stays **JavaScript-first** (no
+  `lang="ts"`, no browser/DOM APIs).
+- We are **not** switching this repository to React / **ReactLynx**. ReactLynx
+  is the official *React* framework for Lynx; Vynx UI stays a Vue-oriented
+  package (`@vynx/ui`) authored against Vue Lynx.
 
-## Open question
+The earlier claim that "no official Vue Lynx runtime / scaffold exists" was
+incorrect and is retracted: Vue Lynx (`vue-lynx`) is that official runtime.
 
-**Choose or build a Vue-compatible Lynx runtime/adapter before making
-`apps/showcase` truly runnable.** Options to evaluate later:
+## Previewing the showcase
 
-1. Adopt an official or community Vue-on-Lynx renderer if/when one exists.
-2. Build a small Vue custom renderer that maps Vynx UI's `view`/`text`/`input`/
-   `textarea` output onto Lynx element APIs.
-3. Reassess the framework contract if no viable Vue path emerges.
+- **Rspeedy** is the official Lynx build tool that Vue Lynx uses
+  (`rspeedy dev` / `rspeedy build` / `rspeedy preview`).
+- **Lynx Explorer** is the official app for previewing Lynx bundles on a device
+  or simulator by scanning the QR code produced by
+  `@lynx-js/qrcode-rsbuild-plugin`.
+- **Web Preview** renders the same bundle in a browser via the `web`
+  environment configured in `lynx.config.js`, useful for quick iteration
+  without a device.
 
-Until then, keep package examples **JavaScript-first and framework-contract
-focused** (ordinary Vue component usage + token resolution), and use official
-Lynx/Rspeedy tooling only for separate host-app experiments.
+## Tooling
 
-## Tooling to track
-
-- **Rspeedy** - official Lynx build tool / scaffold (`npm create rspeedy@latest`).
-- **Lynx Explorer** - official preview app for Lynx bundles.
+- **Vue Lynx** (`vue-lynx`) - official Vue framework/runtime for Lynx
+  (<https://vue.lynxjs.org/>). Scaffold: `npm create vue-lynx@latest`.
+- **Rspeedy** - official Lynx build tool used by Vue Lynx.
+- **Lynx Explorer** - official preview app for Lynx bundles on device/simulator.
+- **Web Preview** - browser preview of the Lynx bundle (`web` environment).
 - **ReactLynx** - official React framework for Lynx (not adopted here).
 
 ## Links
 
+- Vue Lynx: <https://vue.lynxjs.org/>
+- Vue Lynx quick start: <https://vue.lynxjs.org/guide/quick-start>
 - Lynx homepage: <https://lynxjs.org>
 - Lynx quick-start: <https://lynxjs.org/guide/start/quick-start.html>

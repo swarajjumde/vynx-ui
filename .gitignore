@@ -13,3 +13,7 @@ coverage/
 # AI run logs
 .ai/runs/*.json
 !.ai/runs/.gitkeep
+
+# AI scratch: scaffold tarballs / extracted templates (never tracked)
+.ai/*.tgz
+.ai/package/

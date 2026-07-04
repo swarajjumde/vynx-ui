@@ -10,11 +10,12 @@
   ],
   "scripts": {
     "build": "npm run build -w @vynx/themes && npm run build -w @vynx/ui",
+    "build:showcase": "npm run build && npm run build -w @vynx/showcase",
     "test": "node scripts/check-docs.mjs && npm run test -w @vynx/themes && npm run test -w @vynx/ui"
   },
   "devDependencies": {
     "typescript": "^5.4.5",
     "vitest": "^1.6.0",
-    "vue": "^3.4.27"
+    "vue": "^3.5.0"
   }
 }
