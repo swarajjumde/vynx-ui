@@ -12,6 +12,7 @@ export { VAvatar } from './components/VAvatar.js';
 export { VTag } from './components/VTag.js';
 export { VProgressBar } from './components/VProgressBar.js';
 export { VSkeleton } from './components/VSkeleton.js';
+export { VIcon } from './components/VIcon.js';
 export { provideTheme, useTheme } from './theme.js';
 export {
   resolveButtonStyle,
@@ -33,6 +34,8 @@ export { resolveProgressStyle } from './styles/progress.js';
 export type { ProgressTone, ProgressStyle, ProgressStyleOptions } from './styles/progress.js';
 export { resolveSkeletonStyle } from './styles/skeleton.js';
 export type { SkeletonRounded, SkeletonStyleOptions } from './styles/skeleton.js';
+export { resolveIconStyle } from './styles/icon.js';
+export type { IconSize, IconStyleOptions } from './styles/icon.js';
 export type {
   ButtonVariant,
   ButtonTone,
