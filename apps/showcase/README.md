@@ -11,11 +11,14 @@ It renders the Vynx UI foundation components on a Lynx surface, JavaScript-first
   the `lynx` and `web` environments from `src/index.js`.
 - `src/index.js` - Vue Lynx entry. Mounts the app with `createApp` from
   `vue-lynx` (`app.mount()`).
-- `src/App.vue` - a JavaScript SFC using `VButton`, `VCard`, `VBadge`, and the
-  form foundation components (`VFormField`, `VInputText`, `VTextarea`,
-  `VCheckbox`, `VSwitch`) with the violet dark brand theme applied via
-  `provideTheme`. Vue APIs (`ref`) are imported from `vue-lynx`. Text inputs bind
-  with `v-model`; boolean controls bind with `v-model:checked`.
+- `src/App.vue` - a JavaScript SFC catalog that demonstrates the shipped Vynx UI
+  components grouped by tier (foundation, primitives & display, forms, overlays &
+  feedback). It is itself built with Vynx UI (`VScrollView` layout via `VStack`,
+  `VCard` sections, `VHeading`/`VText` chrome) with the violet dark brand theme
+  applied via `provideTheme`. Vue APIs (`ref`) are imported from `vue-lynx`.
+  Inputs bind with `v-model`, boolean controls with `v-model:checked`, and
+  overlays (`VBottomSheet`, `VDialog`, `VActionSheet`, `VDrawer`, `VConfirmDialog`,
+  `VToast`) with `v-model:visible`.
 - `src/tokens-usage.js` - a plain-JS example that imports the compiled package
   output and resolves component styles from design tokens. Runs under plain
   Node: `node apps/showcase/src/tokens-usage.js`.
