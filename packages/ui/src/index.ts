@@ -20,6 +20,12 @@ export { VListItem } from './components/VListItem.js';
 export { VList } from './components/VList.js';
 export { VRadioGroup } from './components/VRadioGroup.js';
 export type { RadioOption } from './components/VRadioGroup.js';
+export { VToggleButton } from './components/VToggleButton.js';
+export { VSelectButton } from './components/VSelectButton.js';
+export type { SelectOption } from './components/VSelectButton.js';
+export { VInputNumber } from './components/VInputNumber.js';
+export { VRating } from './components/VRating.js';
+export { VSearchInput } from './components/VSearchInput.js';
 export { provideTheme, useTheme } from './theme.js';
 export {
   resolveButtonStyle,
@@ -58,6 +64,20 @@ export type {
   RadioOptionStyleOptions,
   RadioOptionStyle
 } from './styles/radio.js';
+export { resolveToggleButtonStyle } from './styles/togglebutton.js';
+export type { ToggleButtonStyleOptions, ToggleButtonStyle } from './styles/togglebutton.js';
+export { resolveSelectButtonStyle, resolveSelectButtonOptionStyle } from './styles/selectbutton.js';
+export type {
+  SelectButtonStyleOptions,
+  SelectButtonOptionStyleOptions,
+  SelectButtonOptionStyle
+} from './styles/selectbutton.js';
+export { resolveInputNumberStyle } from './styles/inputnumber.js';
+export type { InputNumberStyleOptions, InputNumberStyle } from './styles/inputnumber.js';
+export { resolveRatingStyle, resolveRatingStarStyle } from './styles/rating.js';
+export type { RatingStyleOptions, RatingStarStyleOptions } from './styles/rating.js';
+export { resolveSearchInputStyle } from './styles/search.js';
+export type { SearchInputStyleOptions, SearchInputStyle } from './styles/search.js';
 export type {
   ButtonVariant,
   ButtonTone,
