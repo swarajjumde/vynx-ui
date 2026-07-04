@@ -35,3 +35,23 @@ Text inputs use `v-model`; boolean controls use `v-model:checked`.
 
 Build the packages first (`npm run build` at the repo root) so the `dist`
 output the app imports exists.
+
+## Status
+
+This app is a **temporary JavaScript consumer demo**, not yet a runnable Vue
+Lynx host. `src/App.vue` documents ordinary Vue usage and `src/tokens-usage.js`
+is a runnable plain-JS example (`node apps/showcase/src/tokens-usage.js`), but
+nothing is mounted on a Lynx runtime yet.
+
+Making this app truly runnable depends on an open decision: choose or build a
+Vue-compatible Lynx runtime/adapter. The official Lynx tooling to track is
+**Rspeedy** (build tool / scaffold) and **Lynx Explorer** (preview app);
+**ReactLynx** is official for React but this repository is not switching to
+React. See [../../docs/decisions/lynx-runtime.md](../../docs/decisions/lynx-runtime.md).
+
+## Next steps
+
+- Decide on a Vue-compatible Lynx renderer/adapter (see the decision doc).
+- Until then, keep examples JavaScript-first and framework-contract focused.
+- Component usage docs live in
+  [../../docs/components/](../../docs/components/README.md).

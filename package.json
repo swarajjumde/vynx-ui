@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "npm run build -w @vynx/themes && npm run build -w @vynx/ui",
-    "test": "npm run test -w @vynx/themes && npm run test -w @vynx/ui"
+    "test": "node scripts/check-docs.mjs && npm run test -w @vynx/themes && npm run test -w @vynx/ui"
   },
   "devDependencies": {
     "typescript": "^5.4.5",
