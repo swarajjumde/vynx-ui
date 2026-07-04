@@ -13,6 +13,11 @@ export { VTag } from './components/VTag.js';
 export { VProgressBar } from './components/VProgressBar.js';
 export { VSkeleton } from './components/VSkeleton.js';
 export { VIcon } from './components/VIcon.js';
+export { VHeading } from './components/VHeading.js';
+export { VStack } from './components/VStack.js';
+export { VScrollView } from './components/VScrollView.js';
+export { VListItem } from './components/VListItem.js';
+export { VList } from './components/VList.js';
 export { provideTheme, useTheme } from './theme.js';
 export {
   resolveButtonStyle,
@@ -36,6 +41,15 @@ export { resolveSkeletonStyle } from './styles/skeleton.js';
 export type { SkeletonRounded, SkeletonStyleOptions } from './styles/skeleton.js';
 export { resolveIconStyle } from './styles/icon.js';
 export type { IconSize, IconStyleOptions } from './styles/icon.js';
+export { resolveHeadingStyle } from './styles/heading.js';
+export type { HeadingLevel, HeadingTone, HeadingAlign, HeadingStyleOptions } from './styles/heading.js';
+export { resolveStackStyle } from './styles/stack.js';
+export type { StackDirection, StackGap, StackAlign, StackJustify, StackStyleOptions } from './styles/stack.js';
+export { resolveScrollViewStyle } from './styles/scroll.js';
+export type { ScrollViewPadding, ScrollViewStyleOptions } from './styles/scroll.js';
+export type { ScrollViewDirection } from './components/VScrollView.js';
+export { resolveListItemStyle, resolveListStyle } from './styles/list.js';
+export type { ListItemStyleOptions } from './styles/list.js';
 export type {
   ButtonVariant,
   ButtonTone,
