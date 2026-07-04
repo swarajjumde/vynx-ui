@@ -41,6 +41,8 @@ export type { TabItem } from './components/VTabs.js';
 export { VAccordion } from './components/VAccordion.js';
 export { VSelect } from './components/VSelect.js';
 export type { SelectItem } from './components/VSelect.js';
+export { VEmptyState } from './components/VEmptyState.js';
+export { VPaginator } from './components/VPaginator.js';
 export { provideTheme, useTheme } from './theme.js';
 export {
   resolveButtonStyle,
@@ -120,6 +122,10 @@ export type {
   SelectOptionStyleOptions,
   SelectOptionStyle
 } from './styles/select.js';
+export { resolveEmptyStateStyle } from './styles/emptystate.js';
+export type { EmptyStateStyle } from './styles/emptystate.js';
+export { resolvePaginatorStyle, resolvePaginatorButtonStyle } from './styles/paginator.js';
+export type { PaginatorButtonStyleOptions, PaginatorButtonStyle } from './styles/paginator.js';
 export type {
   ButtonVariant,
   ButtonTone,
