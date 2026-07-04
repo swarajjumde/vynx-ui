@@ -48,6 +48,7 @@ export const lightTheme: Theme = {
     neutral: palette.neutral[100],
     neutralHover: palette.neutral[200],
     onNeutral: palette.neutral[900],
+    overlay: palette.scrim.light,
     ...status.light
   },
   ...shared
@@ -72,6 +73,7 @@ export const darkTheme: Theme = {
     neutral: palette.neutral[700],
     neutralHover: palette.neutral[600],
     onNeutral: palette.neutral[50],
+    overlay: palette.scrim.dark,
     ...status.dark
   },
   ...shared
@@ -96,6 +98,7 @@ export const violetLight: Theme = {
     neutral: palette.violet[100],
     neutralHover: palette.violet[200],
     onNeutral: palette.violet[900],
+    overlay: palette.scrim.light,
     ...status.light
   },
   ...shared
@@ -120,6 +123,7 @@ export const violetDark: Theme = {
     neutral: '#3a2470',
     neutralHover: '#472c88',
     onNeutral: palette.violet[50],
+    overlay: palette.scrim.dark,
     ...status.dark
   },
   ...shared

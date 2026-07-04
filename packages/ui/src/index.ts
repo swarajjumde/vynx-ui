@@ -26,6 +26,8 @@ export type { SelectOption } from './components/VSelectButton.js';
 export { VInputNumber } from './components/VInputNumber.js';
 export { VRating } from './components/VRating.js';
 export { VSearchInput } from './components/VSearchInput.js';
+export { VBottomSheet } from './components/VBottomSheet.js';
+export { VDialog } from './components/VDialog.js';
 export { provideTheme, useTheme } from './theme.js';
 export {
   resolveButtonStyle,
@@ -78,6 +80,8 @@ export { resolveRatingStyle, resolveRatingStarStyle } from './styles/rating.js';
 export type { RatingStyleOptions, RatingStarStyleOptions } from './styles/rating.js';
 export { resolveSearchInputStyle } from './styles/search.js';
 export type { SearchInputStyleOptions, SearchInputStyle } from './styles/search.js';
+export { resolveOverlayStyle } from './styles/overlay.js';
+export type { OverlayPlacement, OverlayStyleOptions, OverlayStyle } from './styles/overlay.js';
 export type {
   ButtonVariant,
   ButtonTone,
