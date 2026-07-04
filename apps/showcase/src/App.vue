@@ -1,5 +1,5 @@
 <script>
-// JavaScript-first Vue Lynx SFC — no `lang="ts"`, no browser/DOM APIs.
+// JavaScript-first Vue Lynx SFC demo; no `lang="ts"`, no browser/DOM APIs.
 import { VBadge, VButton, VCard, provideTheme } from '@vynx/ui';
 import { violetDark } from '@vynx/themes';
 

@@ -1,6 +1,5 @@
-// JavaScript entry point for the Vue Lynx showcase app.
-// Vue Lynx mirrors Vue's `createApp` API; the Lynx runtime attaches the
-// resulting app to the native Lynx view tree (no DOM element / selector here).
+// Temporary JavaScript consumer entry for the foundation package output.
+// A real Vue Lynx runtime bootstrap will replace this placeholder later.
 import { createApp } from 'vue';
 import App from './App.vue';
 

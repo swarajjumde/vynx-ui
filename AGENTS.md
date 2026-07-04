@@ -15,6 +15,12 @@ This repository uses a two-agent workflow while Vynx UI is bootstrapped.
 - Codex must not duplicate implementation unless Claude fails or leaves the task incomplete.
 - Do not scaffold broad framework surfaces without a task file.
 
+## Owner-Watch Mode
+
+- Codex runs routine inspections, diffs, builds, tests, and small fixes directly.
+- Do not ask the owner to paste command output or manually run routine checks.
+- Interrupt the owner only for required permission approvals, package/network approval, login/authentication problems, destructive or risky commands, product decisions that cannot be safely inferred, or final practical testing.
+- Summarize results concisely after verification.
 ## Safety
 
 - No package publishing, Git push, remote repository creation, or destructive commands without explicit user approval.

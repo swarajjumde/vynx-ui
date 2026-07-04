@@ -1,13 +1,12 @@
 # @vynx/showcase
 
-A JavaScript-first Vue Lynx app that consumes the built `@vynx/ui` and
-`@vynx/themes` package output.
+Temporary JavaScript consumer demo for the foundation package output. It is not yet a full runnable Vue Lynx showcase app.
 
 ## Files
 
 - `src/App.vue` — a JavaScript SFC using `VButton`, `VCard`, and `VBadge` with
   the violet dark brand theme applied via `provideTheme`.
-- `src/main.js` — JavaScript entry that creates the Vue Lynx app.
+- `src/main.js` — placeholder JavaScript entry for a future Vue Lynx runtime.
 - `src/tokens-usage.js` — a plain-JS example that imports the compiled package
   output and resolves component styles from design tokens.
 
