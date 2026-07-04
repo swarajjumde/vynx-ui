@@ -28,6 +28,11 @@ export { VRating } from './components/VRating.js';
 export { VSearchInput } from './components/VSearchInput.js';
 export { VBottomSheet } from './components/VBottomSheet.js';
 export { VDialog } from './components/VDialog.js';
+export { VActionSheet } from './components/VActionSheet.js';
+export type { ActionSheetAction } from './components/VActionSheet.js';
+export { VDrawer } from './components/VDrawer.js';
+export { VToast } from './components/VToast.js';
+export { VConfirmDialog } from './components/VConfirmDialog.js';
 export { provideTheme, useTheme } from './theme.js';
 export {
   resolveButtonStyle,
@@ -82,6 +87,16 @@ export { resolveSearchInputStyle } from './styles/search.js';
 export type { SearchInputStyleOptions, SearchInputStyle } from './styles/search.js';
 export { resolveOverlayStyle } from './styles/overlay.js';
 export type { OverlayPlacement, OverlayStyleOptions, OverlayStyle } from './styles/overlay.js';
+export { resolveActionSheetItemStyle } from './styles/actionsheet.js';
+export type {
+  ActionSheetItemTone,
+  ActionSheetItemStyleOptions,
+  ActionSheetItemStyle
+} from './styles/actionsheet.js';
+export { resolveToastStyle } from './styles/toast.js';
+export type { ToastTone, ToastStyleOptions, ToastStyle } from './styles/toast.js';
+export { resolveConfirmDialogStyle } from './styles/confirmdialog.js';
+export type { ConfirmDialogStyle } from './styles/confirmdialog.js';
 export type {
   ButtonVariant,
   ButtonTone,
