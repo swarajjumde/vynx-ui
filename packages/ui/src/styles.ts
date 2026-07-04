@@ -23,3 +23,9 @@ export type {
   ToggleStyle,
   ToggleStyleOptions
 } from './styles/form.js';
+export { resolveTagStyle } from './styles/tag.js';
+export type { TagTone, TagVariant, TagStyleOptions } from './styles/tag.js';
+export { resolveProgressStyle } from './styles/progress.js';
+export type { ProgressTone, ProgressStyle, ProgressStyleOptions } from './styles/progress.js';
+export { resolveSkeletonStyle } from './styles/skeleton.js';
+export type { SkeletonRounded, SkeletonStyleOptions } from './styles/skeleton.js';
