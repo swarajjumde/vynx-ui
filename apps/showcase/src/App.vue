@@ -7,9 +7,11 @@ import {
   VList, VListItem, VStack,
   VRadioGroup, VSelectButton, VToggleButton, VInputNumber, VRating, VSearchInput,
   VBottomSheet, VDialog, VActionSheet, VDrawer, VToast, VConfirmDialog,
+  VAppBar, VTabs, VAccordion, VSelect, VTabBar,
+  VDataView, VTimeline, VCarousel, VTable, VPaginator, VEmptyState,
   provideTheme
 } from '@vynx/ui';
-import { ref } from 'vue-lynx';
+import { ref, computed } from 'vue-lynx';
 import { violetDark } from '@vynx/themes';
 
 export default {
@@ -19,7 +21,9 @@ export default {
     VText, VHeading, VDivider, VAvatar, VTag, VProgressBar, VSkeleton, VIcon,
     VList, VListItem, VStack,
     VRadioGroup, VSelectButton, VToggleButton, VInputNumber, VRating, VSearchInput,
-    VBottomSheet, VDialog, VActionSheet, VDrawer, VToast, VConfirmDialog
+    VBottomSheet, VDialog, VActionSheet, VDrawer, VToast, VConfirmDialog,
+    VAppBar, VTabs, VAccordion, VSelect, VTabBar,
+    VDataView, VTimeline, VCarousel, VTable, VPaginator, VEmptyState
   },
   setup() {
     provideTheme(violetDark);
@@ -79,11 +83,70 @@ export default {
     const onAction = (value) => showToast('Action: ' + value, 'neutral');
     const onConfirm = () => showToast('Deleted', 'danger');
 
+    // Tier 5 — navigation state.
+    const tab = ref('overview');
+    const tabItems = [
+      { label: 'Overview', value: 'overview' },
+      { label: 'Activity', value: 'activity' },
+      { label: 'Members', value: 'members' }
+    ];
+    const faqOpen = ref(true);
+    const sort = ref('recent');
+    const sortOptions = [
+      { label: 'Most recent', value: 'recent' },
+      { label: 'Alphabetical', value: 'alpha' },
+      { label: 'Oldest first', value: 'oldest' }
+    ];
+    const navTab = ref('home');
+    const navItems = [
+      { label: 'Home', value: 'home' },
+      { label: 'Search', value: 'search' },
+      { label: 'Profile', value: 'profile' }
+    ];
+
+    // Tier 6 — data state.
+    const people = [
+      { id: 1, name: 'Ada Lovelace', role: 'Editor', status: 'active' },
+      { id: 2, name: 'Grace Hopper', role: 'Admin', status: 'active' },
+      { id: 3, name: 'Alan Turing', role: 'Viewer', status: 'invited' }
+    ];
+    const statusTone = { active: 'success', invited: 'warning', suspended: 'danger' };
+    const toneFor = (status) => statusTone[status] || 'neutral';
+    const activity = [
+      { title: 'Ada joined the team', time: '2h ago', description: 'Invited as Editor' },
+      { title: 'Report exported', time: '5h ago', description: 'Q3 revenue' },
+      { title: 'Plan upgraded', time: 'Yesterday', description: 'Team plan' }
+    ];
+    const highlights = [
+      { title: 'Weekly digest', body: '12 new sign-ups this week.' },
+      { title: 'Storage', body: '64% of your quota used.' },
+      { title: 'Uptime', body: '99.98% over 30 days.' }
+    ];
+    const tableColumns = [
+      { key: 'name', label: 'Name' },
+      { key: 'role', label: 'Role' },
+      { key: 'status', label: 'Status' }
+    ];
+    const page = ref(1);
+
+    const dataRow = computed(() => ({
+      display: 'flex', flexDirection: 'row', alignItems: 'center', gap: t.spacing.sm, flexGrow: 1
+    }));
+    const slideCard = {
+      display: 'flex', flexDirection: 'column', gap: t.spacing.xs,
+      padding: t.spacing.md, backgroundColor: t.colors.surface,
+      borderRadius: t.radius.lg, height: '100%'
+    };
+    const spacer = { flexGrow: 1 };
+
     return {
       ui, name, bio, subscribe, notifications, plan, range, bold, qty, stars, query,
       planOptions, rangeOptions, actions,
       sheetOpen, dialogOpen, actionOpen, drawerOpen, confirmOpen,
-      toastOpen, toastMsg, toastTone, showToast, onAction, onConfirm
+      toastOpen, toastMsg, toastTone, showToast, onAction, onConfirm,
+      tab, tabItems, faqOpen, sort, sortOptions, navTab, navItems,
+      people, toneFor, activity, highlights, tableColumns, page,
+      dataRow, slideCard, spacer
     };
   }
 };
@@ -101,8 +164,8 @@ export default {
             <VText tone="muted" value="PrimeVue, for Lynx — a token-driven component library." />
             <view :style="ui.row">
               <VBadge tone="primary" label="v0" />
-              <VTag tone="success" variant="solid" label="4/6 tiers" />
-              <VTag tone="neutral" variant="outline" label="32 components" />
+              <VTag tone="success" variant="solid" label="6/6 tiers" />
+              <VTag tone="neutral" variant="outline" label="43 components" />
             </view>
           </VStack>
 
@@ -205,7 +268,85 @@ export default {
             </VStack>
           </VCard>
 
-          <VText tone="muted" size="sm" value="Tiers 5–6 (navigation, data) and the starter template are next." />
+          <!-- Tier 5 — Navigation -->
+          <VStack gap="sm">
+            <VText tone="primary" size="xs" weight="semibold" value="TIER 05 · NAVIGATION" />
+            <VHeading :level="2" value="Navigation" />
+          </VStack>
+          <VCard elevated>
+            <VStack gap="md">
+              <VAppBar title="Dashboard">
+                <template #leading>
+                  <VText size="lg" value="☰" />
+                </template>
+                <template #trailing>
+                  <VAvatar label="AL" size="sm" />
+                </template>
+              </VAppBar>
+              <VTabs v-model="tab" :items="tabItems" />
+              <VText tone="muted" size="sm" :value="'Active tab: ' + tab" />
+              <VDivider />
+              <VFormField label="Sort by">
+                <VSelect v-model="sort" :options="sortOptions" placeholder="Choose order" />
+              </VFormField>
+              <VAccordion v-model:open="faqOpen" label="What is Vynx UI?">
+                <VText tone="muted" size="sm" value="A token-driven Vue Lynx component framework — PrimeVue, for mobile." />
+              </VAccordion>
+              <VDivider />
+              <VTabBar v-model="navTab" :items="navItems" />
+            </VStack>
+          </VCard>
+
+          <!-- Tier 6 — Data -->
+          <VStack gap="sm">
+            <VText tone="primary" size="xs" weight="semibold" value="TIER 06 · DATA" />
+            <VHeading :level="2" value="Data" />
+          </VStack>
+          <VCard elevated>
+            <VStack gap="md">
+              <VHeading :level="3" value="Members" />
+              <VDataView :items="people">
+                <template #item="{ item }">
+                  <view :style="dataRow">
+                    <VAvatar :label="item.name.slice(0, 2)" size="sm" />
+                    <VStack gap="none">
+                      <VText :value="item.name" weight="medium" />
+                      <VText tone="muted" size="sm" :value="item.role" />
+                    </VStack>
+                    <view :style="spacer" />
+                    <VTag :tone="toneFor(item.status)" variant="solid" :label="item.status" />
+                  </view>
+                </template>
+                <template #empty>
+                  <VText tone="muted" value="No members yet." />
+                </template>
+              </VDataView>
+              <VPaginator v-model="page" :total="3" />
+              <VDivider />
+              <VHeading :level="3" value="Roster" />
+              <VTable :columns="tableColumns" :rows="people" />
+              <VDivider />
+              <VHeading :level="3" value="Highlights" />
+              <VCarousel :items="highlights" slide-width="240px">
+                <template #slide="{ item }">
+                  <view :style="slideCard">
+                    <VText :value="item.title" weight="semibold" />
+                    <VText tone="muted" size="sm" :value="item.body" />
+                  </view>
+                </template>
+              </VCarousel>
+              <VDivider />
+              <VHeading :level="3" value="Recent activity" />
+              <VTimeline :items="activity" />
+              <VDivider />
+              <VHeading :level="3" value="Empty state" />
+              <VEmptyState title="No results" message="Try a different search term.">
+                <VButton variant="outline" tone="neutral" label="Clear filters" />
+              </VEmptyState>
+            </VStack>
+          </VCard>
+
+          <VText tone="muted" size="sm" value="All 6 tiers shipped — see apps/starter for the full admin template." />
         </VStack>
       </view>
     </scroll-view>
