@@ -1,7 +1,24 @@
 {
   "name": "@vynx/ui",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Vue Lynx UI components for Vynx UI.",
+  "license": "MIT",
+  "author": "Swaraj Jumde",
+  "keywords": [
+    "vue",
+    "lynx",
+    "vue-lynx",
+    "ui",
+    "components",
+    "design-system",
+    "mobile"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swarajjumde/vynx-ui.git",
+    "directory": "packages/ui"
+  },
+  "homepage": "https://github.com/swarajjumde/vynx-ui#readme",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",

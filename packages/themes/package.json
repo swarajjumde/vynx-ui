@@ -1,7 +1,22 @@
 {
   "name": "@vynx/themes",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Design tokens and theme outputs for Vynx UI.",
+  "license": "MIT",
+  "author": "Swaraj Jumde",
+  "keywords": [
+    "vue",
+    "lynx",
+    "design-tokens",
+    "theme",
+    "design-system"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swarajjumde/vynx-ui.git",
+    "directory": "packages/themes"
+  },
+  "homepage": "https://github.com/swarajjumde/vynx-ui#readme",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
